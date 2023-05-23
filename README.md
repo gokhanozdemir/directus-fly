@@ -6,7 +6,6 @@ Install Directus on [Fly.io](https://fly.io)
 
 Fly requires a globally unique name for all the apps, and we've used the directory name and random hash as the app name. Of course, you can change this anytime you want BEFORE launching the app with Fly CLI. But it's not a big deal since you can reassign the internal Fly URL to any custom domain by adding a [`CNAME`][cname] record to your custom domain pointing to the Fly internal URL. We'll see that later when deploying the app to production.
 
-
 ## Fly Setup 🛠
 
 1. [Install Fly](https://fly.io/docs/getting-started/installing-flyctl/)
@@ -64,7 +63,7 @@ flyctl secrets set ADMIN_PASSWORD=[YOUR-ADMIN-PASSWORD]
 
 The last secret, is your `PUBLIC_URL`, you can get the initial domain from fly by typing: `flyctl info`
 
-To get the current app URL and IP address. The app URL will be `https://YOUR-APP-NAME.fly.dev`. 
+To get the current app URL and IP address. The app URL will be `https://YOUR-APP-NAME.fly.dev`.
 
 ```bash
 flyctl secrets set PUBLIC_URL=https://[YOUR-APP-NAME].fly.dev
@@ -104,12 +103,11 @@ You have two ways to deploy:
 - Via `npm run deploy`: deploy the current folder
 - Via Github actions.
 
-GitHub actions workflows are configured to run on push to the `main` branch. 
+GitHub actions workflows are configured to run on push to the `main` branch.
 
 So let's push the local branch `main` to remote, triggering the workflows.
 
 Once all the checks are passed, and the deployment is complete
-
 
 ### Logs
 
@@ -121,7 +119,7 @@ You can also log in to the remote console using the `flyctl ssh console` command
 
 ### Connecting to your database
 
-The sqlite database lives at `/data/database/data.db` in your deployed application. 
+The sqlite database lives at `/data/database/data.db` in your deployed application.
 
 You can connect to the live database by running `flyctl ssh console -C database-cli`.
 
